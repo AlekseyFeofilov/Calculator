@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/museo700_regular"
+        android:text="@string/name"
+        android:textColor="@color/black"
+        android:textSize="28sp"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/display"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/name"
+        app:srcCompat="@drawable/rectangle2" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="24dp" />
+
+    <TextView
+        android:id="@+id/num_backgroud"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/digitalnumbers_regular"
+        android:text="@string/num_background"
+        android:textColor="@color/transporante_black"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toBottomOf="@+id/display"
+        app:layout_constraintEnd_toEndOf="@+id/display"
+        app:layout_constraintStart_toStartOf="@+id/display"
+        app:layout_constraintTop_toTopOf="@+id/display" />
+
+    <TextView
+        android:id="@+id/answer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/digitalnumbers_regular"
+        android:textColor="@color/black"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toBottomOf="@+id/display"
+        app:layout_constraintStart_toStartOf="@+id/display"
+        app:layout_constraintTop_toTopOf="@+id/display" />
+
+    <ImageButton
+        android:id="@+id/buttom_AC"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="14dp"
+        android:background="@null"
+        app:layout_constraintBottom_toTopOf="@+id/buttom_7"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/display"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:srcCompat="@drawable/rectangle1" />
+
+    <ImageButton
+        android:id="@+id/buttom_7"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@null"
+        app:layout_constraintBottom_toTopOf="@+id/buttom_4"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/buttom_AC"
+        app:srcCompat="@drawable/rectangle1" />
+
+    <ImageButton
+        android:id="@+id/buttom_4"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@null"
+        app:layout_constraintBottom_toTopOf="@+id/buttom_1"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/buttom_7"
+        app:srcCompat="@drawable/rectangle1" />
+
+    <ImageButton
+        android:id="@+id/buttom_1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@null"
+        app:layout_constraintBottom_toTopOf="@+id/buttom_0"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/buttom_4"
+        app:srcCompat="@drawable/rectangle1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="14dp" />
+
+    <ImageButton
+        android:id="@+id/buttom_0"
+        android:layout_width="195dp"
+        android:layout_height="100dp"
+        android:background="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/buttom_1"
+        app:srcCompat="@drawable/rectangle3" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

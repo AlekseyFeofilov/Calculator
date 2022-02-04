@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Calculator2.0</string>
+    <string name="name">Calculator</string>
+    <string name="num_background">888888888</string>
+</resources>
