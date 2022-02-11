@@ -2,6 +2,7 @@ package com.example.calculator20
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.Group
 import com.example.calculator20.databinding.ActivityMainBinding
@@ -122,18 +123,9 @@ class MainActivity : AppCompatActivity() {
         if(text.length < 9 ||
             "." in text && text.length == 9) {
             when (view.id) {
-                binding.buttom0.id -> text += "0"
-                binding.buttom1.id -> text += "1"
-                binding.buttom2.id -> text += "2"
-                binding.buttom3.id -> text += "3"
-                binding.buttom4.id -> text += "4"
-                binding.buttom5.id -> text += "5"
-                binding.buttom6.id -> text += "6"
-                binding.buttom7.id -> text += "7"
-                binding.buttom8.id -> text += "8"
-                binding.buttom9.id -> text += "9"
                 binding.buttomComma.id -> { if ("." !in text) text += "." }
                 binding.buttomNegative.id -> { text = if("-" in text) text.substring(1) else "-$text" }
+                else -> text += findViewById<Button>(view.id).text
             }
             binding.answer.text = text
         }

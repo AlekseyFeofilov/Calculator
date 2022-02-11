@@ -4,8 +4,8 @@
     <string name="num_background">888888888</string>
     <string name="AC">AC</string>
     <string name="negative">+/-</string>
-    <string name="division">/</string>
-    <string name="multiplication">X</string>
+    <string name="division">÷</string>
+    <string name="multiplication">x</string>
     <string name="minus">-</string>
     <string name="plus">+</string>
     <string name="equals">=</string>
