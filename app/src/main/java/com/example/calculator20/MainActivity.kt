@@ -1,54 +1,47 @@
 package com.example.calculator20
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.Group
 import com.example.calculator20.databinding.ActivityMainBinding
 import kotlin.math.abs
 import kotlin.math.pow
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    var text = ""
-    var typeOfOperation = 0
-    var current = 0.0
-    val epsilon = 0.0000001f
+    private var text = ""
+    private var typeOfOperation = 0
+    private var current = 0.0
+    private val epsilon = 0.0000001f
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.buttom0.setOnClickListener(input)
-        binding.buttom1.setOnClickListener(input)
-        binding.buttom2.setOnClickListener(input)
-        binding.buttom3.setOnClickListener(input)
-        binding.buttom4.setOnClickListener(input)
-        binding.buttom5.setOnClickListener(input)
-        binding.buttom6.setOnClickListener(input)
-        binding.buttom7.setOnClickListener(input)
-        binding.buttom8.setOnClickListener(input)
-        binding.buttom9.setOnClickListener(input)
-        binding.buttomComma.setOnClickListener(input)
-        binding.buttomNegative.setOnClickListener(input)
-
-        binding.buttomDivision.setOnClickListener(operation)
-        binding.buttomMultiplication.setOnClickListener(operation)
-        binding.buttomMinus.setOnClickListener(operation)
-        binding.buttomPlus.setOnClickListener(operation)
-        binding.buttomEquals.setOnClickListener(operation)
-
+        binding.numberButtom.setGroupOnClickListener(input)
+        binding.operattionButton.setGroupOnClickListener(operation)
         binding.buttomPercent.setOnClickListener(percent)
         binding.buttomAC.setOnClickListener {
-            text = ""; binding.answer.text = text;
-            current = 0.0; typeOfOperation = 0
+            text = ""
+            binding.answer.text = text
+            current = 0.0
+            typeOfOperation = 0
         }
     }
 
-    private val percent = View.OnClickListener { view ->
-        if(abs(current) < (epsilon) || text == "") {
+    private fun Group.setGroupOnClickListener(listener: View.OnClickListener?){
+        referencedIds.forEach { id ->
+            rootView.findViewById<View>(id).setOnClickListener(listener)
+        }
+    }
+
+    private val percent = View.OnClickListener {
+        if(abs(current) < (epsilon) || text.isEmpty()) {
             text = ""
             current = 0.0
+            typeOfOperation = 0
             binding.answer.text = "0"
             return@OnClickListener
         }
@@ -79,10 +72,10 @@ class MainActivity : AppCompatActivity() {
         }
 
         when(view.id){
-            binding.buttomDivision.id -> typeOfOperation = 1
-            binding.buttomMultiplication.id -> typeOfOperation = 2
-            binding.buttomMinus.id -> typeOfOperation = 3
-            binding.buttomPlus.id -> typeOfOperation = 4
+            binding.buttomDivision.id -> typeOfOperation = Operation.division.number
+            binding.buttomMultiplication.id -> typeOfOperation = Operation.multiplication.number
+            binding.buttomMinus.id -> typeOfOperation = Operation.subtraction.number
+            binding.buttomPlus.id -> typeOfOperation = Operation.addition.number
         }
     }
 
@@ -97,14 +90,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun output() {
-        if(current.toLong() / 1000000000000000000 != 0L){
+        if(current > 1000000000000000000){
             binding.answer.text = getString(R.string.StackOverflow)
             current = 0.0
         }
         else if(current.toLong() / 100000000 in 1..9){
             binding.answer.text = "${current.toLong()}"
         }
-        else if(current.toLong() / 100000000 != 0L){
+        else if(current > 100000000){
             val long = current.toLong()
             val digit = 10.0.pow(long.toString().length - 6)
             binding.answer.text = (long / digit.toLong() * digit).toString()
@@ -146,6 +139,3 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
-
-
-
