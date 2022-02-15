@@ -21,19 +21,19 @@ open class TextData {
     open fun formatOutput(value: Double): String{
         text = ""
 
-        if(value > 1000000000000000000){
+        if(abs(value) > 1000000000000000000){
             return "ouerfl."
         }
-        else if(value.toLong() / 100000000 in 1..9){
+        else if(value.toLong() / 100000000 in 1..9 || value.toLong() / 10000000 in -9..-1){
             return "${value.toLong()}"
         }
-        else if(value > 100000000){
+        else if(value > 100000000 || value < -10000000){
             val long = value.toLong()
             val digit = 10.0.pow(long.toString().length - 6)
             return (long / digit.toLong() * digit).toString()
         }
         else if (abs(value - value.toInt()) < epsilon &&
-            value.toInt().toString().length < 9 ) {
+            value.toInt().toString().length <= 9 ) {
             return "${value.toInt()}"
         }
         else {

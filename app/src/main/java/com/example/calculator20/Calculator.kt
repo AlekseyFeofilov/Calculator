@@ -12,7 +12,7 @@ class Calculator : TextData() {
     }
 
     override fun formatOutput(value: Double): String {
-        if (value > 1000000000000000000) {
+        if (abs(value) > 1000000000000000000) {
             current = 0.0
         } else if (abs(value - value.toInt()) < epsilon &&
             value.toInt().toString().length < 9) {
