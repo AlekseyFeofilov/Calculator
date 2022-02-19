@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="button_style">
+        <item name="android:layout_height">80dp</item>
+        <item name="android:layout_width">80dp</item>
+        <item name="android:fontFamily">@font/montserrat_bold</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:stateListAnimator">@drawable/button_animation</item>
+    </style>
+
+    <style name="button_style.white">
+        <item name="android:background">@drawable/button_white</item>
+        <item name="android:textColor">@color/number</item>
+    </style>
+    <style name="button_style.white.large">
+        <item name="android:layout_width">175dp</item>
+    </style>
+    <style name="button_style.blue">
+        <item name="android:background">@drawable/button_blue</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+<style name="text_digital_styles">
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:fontFamily">@font/digitalnumbers_regular</item>
+    <item name="android:textSize">50sp</item>
+</style>
+</resources>

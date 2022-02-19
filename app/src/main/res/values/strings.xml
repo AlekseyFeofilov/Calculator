@@ -1,7 +1,8 @@
 <resources>
-    <string name="app_name">Calculator2.0</string>
+    <string name="app_name">Calculator</string>
     <string name="name">Calculator</string>
     <string name="num_background">888888888</string>
+
     <string name="AC">AC</string>
     <string name="negative">+/-</string>
     <string name="division">÷</string>
@@ -11,6 +12,7 @@
     <string name="equals">=</string>
     <string name="percent">%</string>
     <string name="comma">,</string>
+
     <string name="number_0">0</string>
     <string name="number_1">1</string>
     <string name="number_2">2</string>
