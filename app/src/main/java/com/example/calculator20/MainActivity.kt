@@ -8,7 +8,7 @@ import com.example.calculator20.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    var calculator = Calculator()
+    private var calculator = Calculator()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,8 +17,8 @@ class MainActivity : AppCompatActivity() {
 
         binding.numberButtom.setGroupOnClickListener(input)
         binding.operattionButton.setGroupOnClickListener(operation)
-        binding.buttomPercent.setOnClickListener(percent)
-        binding.buttomAC.setOnClickListener {
+        binding.buttonPercent.setOnClickListener(percent)
+        binding.buttonAC.setOnClickListener {
             calculator.reset()
             binding.answer.text = ""
         }
@@ -37,20 +37,20 @@ class MainActivity : AppCompatActivity() {
         }
 
         when(view.id){
-            binding.buttomDivision.id -> calculator.setTypeofOperation(Operation.DIVISION)
-            binding.buttomMultiplication.id -> calculator.setTypeofOperation(Operation.MULTIPLICATION)
-            binding.buttomMinus.id -> calculator.setTypeofOperation(Operation.SUBTRACTION)
-            binding.buttomPlus.id -> calculator.setTypeofOperation(Operation.ADDITION)
+            binding.buttonDivision.id -> calculator.setTypeofOperation(Operation.DIVISION)
+            binding.buttonMultiplication.id -> calculator.setTypeofOperation(Operation.MULTIPLICATION)
+            binding.buttonMinus.id -> calculator.setTypeofOperation(Operation.SUBTRACTION)
+            binding.buttonPlus.id -> calculator.setTypeofOperation(Operation.ADDITION)
         }
     }
 
     private val input = View.OnClickListener { view ->
         if(calculator.inputLength() < 9 ||
             !calculator.inputIsInteger() && calculator.inputLength() == 9 ||
-             calculator.inputIsNegative() && view.id == binding.buttomNegative.id) {
+             calculator.inputIsNegative() && view.id == binding.buttonNegative.id) {
             when (view.id) {
-                binding.buttomComma.id -> calculator.convertToFloat()
-                binding.buttomNegative.id -> calculator.makeNegative()
+                binding.buttonComma.id -> calculator.convertToFloat()
+                binding.buttonNegative.id -> calculator.makeNegative()
                 else -> calculator.addNumber(findViewById<Button>(view.id).text);
             }
 
